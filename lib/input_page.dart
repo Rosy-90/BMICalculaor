@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+const bottomHeightConstraint = 80.00;
+const activeCardColour = Color(0xFF1D1E33);
+const bottomContainerColour =Color(0xFFEB1555);
 class InputPage extends StatefulWidget {
   @override
   _InputPageState createState() => _InputPageState();
@@ -24,14 +27,14 @@ class _InputPageState extends State<InputPage> {
       //body: Container(
       body: Column(
         children: [
-           Expanded(
+           const Expanded(
             child: Row(
             children: [
                Expanded(
-                child: ReusableCard(colour: const Color(0xFF1D1E33)),
+                child: ReusableCard(colour: activeCardColour),
               ),
               Expanded(
-                child: ReusableCard(colour: const Color(0xFF1D1E33)),
+                child: ReusableCard(colour: activeCardColour),
               ),
             ],
           ),
@@ -46,18 +49,24 @@ class _InputPageState extends State<InputPage> {
               ),
             ),
           ),
-           Expanded(
+           const Expanded(
             child: Row(
               children: [
                 Expanded(
-                  child: ReusableCard(colour: const Color(0xFF1D1E33)),
+                  child: ReusableCard(colour: activeCardColour),
                 ),
                 Expanded(
-                  child: ReusableCard(colour: const Color(0xFF1D1E33)),
+                  child: ReusableCard(colour: activeCardColour),
                 ),
               ],
             ),
           ),
+          Container(
+            height: bottomHeightConstraint,
+            width: double.infinity,
+            margin: const EdgeInsets.only(top: 10),
+            color: bottomContainerColour,
+          )
         ],
       ),
       //),
@@ -71,8 +80,8 @@ class _InputPageState extends State<InputPage> {
 }
 
 class ReusableCard extends StatelessWidget {
-  ReusableCard({super.key, required this.colour});
-  Color colour;
+  const ReusableCard({super.key, required this.colour});
+  final Color colour;
 
   @override
   Widget build(BuildContext context) {
