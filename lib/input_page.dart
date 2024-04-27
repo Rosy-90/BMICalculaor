@@ -1,8 +1,12 @@
+import 'package:bmi_calculator/reusable_card.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'icon_content.dart';
 
 const bottomHeightConstraint = 80.00;
 const activeCardColour = Color(0xFF1D1E33);
-const bottomContainerColour =Color(0xFFEB1555);
+const bottomContainerColour = Color(0xFFEB1555);
+
 class InputPage extends StatefulWidget {
   @override
   _InputPageState createState() => _InputPageState();
@@ -27,17 +31,27 @@ class _InputPageState extends State<InputPage> {
       //body: Container(
       body: Column(
         children: [
-           const Expanded(
+          Expanded(
             child: Row(
-            children: [
-               Expanded(
-                child: ReusableCard(colour: activeCardColour),
-              ),
-              Expanded(
-                child: ReusableCard(colour: activeCardColour),
-              ),
-            ],
-          ),
+              children: [
+                Expanded(
+                  child: ReusableCard(
+                    colour: activeCardColour,
+                    cardChild: IconContent(
+                      label: "MALE",
+                      cardIcon: FontAwesomeIcons.mars,
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: ReusableCard(
+                    colour: activeCardColour,
+                    cardChild: IconContent(
+                        label: "Female", cardIcon: FontAwesomeIcons.venus),
+                  ),
+                ),
+              ],
+            ),
           ),
           Expanded(
             child: Container(
@@ -49,7 +63,7 @@ class _InputPageState extends State<InputPage> {
               ),
             ),
           ),
-           const Expanded(
+          const Expanded(
             child: Row(
               children: [
                 Expanded(
@@ -75,24 +89,6 @@ class _InputPageState extends State<InputPage> {
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
-  }
-}
-
-class ReusableCard extends StatelessWidget {
-  const ReusableCard({super.key, required this.colour});
-  final Color colour;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 170,
-      height: 200,
-      margin: const EdgeInsets.all(15),
-      decoration: BoxDecoration(
-        color: colour,
-        borderRadius: BorderRadius.circular(10),
-      ),
     );
   }
 }
