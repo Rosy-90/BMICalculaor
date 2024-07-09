@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
-
-const labelTextStyle = TextStyle(
-  fontSize: 18.0,
-  color: Color(0xFF8D8E98));
+import '../constants.dart';
 
 class IconContent extends StatelessWidget {
-  IconContent({super.key, required this.label, required this.cardIcon});
+  const IconContent({super.key, required this.label, required this.cardIcon});
 
-  String label;
-  IconData cardIcon;
+  final String label;
+  final IconData cardIcon;
 
   @override
   Widget build(BuildContext context) {
